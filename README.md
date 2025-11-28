@@ -98,7 +98,8 @@ jdbc:h2:mem:usuariosdb
 
 ## COMO EJECUTAR EL PROYECTO 
 
-git clone <URL_DEL_REPOSITORIO>
+git clone https://github.com/JoseBejar/prueba-tecnica-banco-chile.git
+
 cd usuarios-api
 
 mvn clean install
