@@ -1,0 +1,203 @@
+{
+  "info": {
+    "_postman_id": "b4c37d0d-0000-4000-9000-usuarios-api-banco-chile",
+    "name": "Usuarios API - Banco de Chile",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "usuarios-api"
+  },
+  "item": [
+    {
+      "name": "1 - Registrar usuario",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Jose Luis\",\n  \"correo\": \"jose@test.com\",\n  \"contraseña\": \"Password123\",\n  \"telefonos\": [\n    {\n      \"numero\": \"1234567\",\n      \"codigoCiudad\": \"1\",\n      \"codigoPais\": \"57\"\n    }\n  ]\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/usuarios",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "usuarios"
+          ]
+        },
+        "description": "Crea un nuevo usuario, valida correo/contraseña y genera un token JWT.\nEste endpoint es público."
+      },
+      "response": []
+    },
+    {
+      "name": "2 - Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"correo\": \"jose@test.com\",\n  \"contraseña\": \"Password123\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/login",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "login"
+          ]
+        },
+        "description": "Realiza login del usuario y devuelve un nuevo token JWT y el ultimoLogin actualizado.\nEste endpoint es público."
+      },
+      "response": []
+    },
+    {
+      "name": "3 - Obtener usuario por ID",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/usuarios/{{userId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "usuarios",
+            "{{userId}}"
+          ]
+        },
+        "description": "Obtiene un usuario por su ID.\nRequiere token JWT en el header Authorization."
+      },
+      "response": []
+    },
+    {
+      "name": "4 - Actualizar usuario (PUT)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Jose Luis Actualizado\",\n  \"correo\": \"jose@test.com\",\n  \"contraseña\": \"Password123\",\n  \"telefonos\": [\n    {\n      \"numero\": \"7654321\",\n      \"codigoCiudad\": \"1\",\n      \"codigoPais\": \"57\"\n    }\n  ]\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/usuarios/{{userId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "usuarios",
+            "{{userId}}"
+          ]
+        },
+        "description": "Actualiza los datos completos del usuario (nombre, correo, contraseña, teléfonos).\nRequiere token JWT."
+      },
+      "response": []
+    },
+    {
+      "name": "5 - Actualizar estado (PATCH activo)",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"activo\": false\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/usuarios/{{userId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "usuarios",
+            "{{userId}}"
+          ]
+        },
+        "description": "Actualiza únicamente el estado 'activo' del usuario.\nRequiere token JWT."
+      },
+      "response": []
+    },
+    {
+      "name": "6 - Eliminar usuario",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/usuarios/{{userId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "usuarios",
+            "{{userId}}"
+          ]
+        },
+        "description": "Elimina un usuario por su ID.\nRequiere token JWT."
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "userId",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}

@@ -1,33 +1,139 @@
-HELP.md
+########################################
+# Java
+########################################
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.log
+
+# Compiled class files
 target/
+build/
+out/
+
+########################################
+# Maven
+########################################
+.mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+!/.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### IntelliJ IDEA ###
-.idea
-*.iws
+# Maven local repository potential files
 *.iml
 *.ipr
+*.iws
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+########################################
+# IntelliJ IDEA
+########################################
+.idea/
+*.iml
+*.iws
+*.ipr
+*.class
+*.jar
+*.war
+*.ear
 
-### VS Code ###
+# IntelliJ cache
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+.idea/**/modules.xml
+.idea/**/compiler.xml
+.idea/**/jarRepositories.xml
+.idea/**/gradle.xml
+.idea/**/libraries
+
+# IntelliJ output folder
+out/
+
+########################################
+# VS Code (por si acaso)
+########################################
 .vscode/
+.history/
+
+########################################
+# OS files
+########################################
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+########################################
+# Logs / Temp
+########################################
+*.log
+*.tmp
+*.swp
+*.swo
+*.orig
+
+########################################
+# Spring Boot
+########################################
+# Embedded Tomcat logs
+logs/
+spring.log
+
+########################################
+# H2 Database (si generara archivos)
+########################################
+*.db
+*.mv.db
+*.trace.db
+
+########################################
+# JWT / Seguridad (por precaución)
+########################################
+*.key
+*.pem
+*.p12
+*.jks
+
+########################################
+# Coverage / Reports
+########################################
+.coverage
+coverage/
+coverage-final.json
+jacoco.exec
+jacoco-report/
+
+########################################
+# Node (si en algún momento mezclas front)
+########################################
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+########################################
+# Archivos creados por Postman
+########################################
+postman/*.json
+postman/*.env
+.postman
+
+########################################
+# Archivos de sistema
+########################################
+*.bak
+*.old
+
+########################################
+# Archivos auto-generados por herramientas
+########################################
+dependency-reduced-pom.xml
